@@ -1,0 +1,31 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: minimalapi
+  namespace: flux-system
+spec:
+  image: jmsalonen/minimalapi
+  interval: 1m
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: minimalapi-policy
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: minimalapi
+  policy:
+    alphabetical:
+      order: asc
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: my-config
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://github.com/jmsalonen/dotnet-minimal-api.git
+  ref:
+    branch: flux

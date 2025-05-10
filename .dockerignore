@@ -1,0 +1,10 @@
+Api/bin
+Api/obj
+Api/.vs
+Api/.vscode
+Database/*.db
+Database/*.db-journal
+**/node_modules
+**/.git
+**/.gitignore
+**/.dockerignore

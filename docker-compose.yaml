@@ -1,0 +1,15 @@
+services:
+  api:
+    build:
+      context: ./Api
+      dockerfile: Dockerfile
+    ports:
+      - "5555:5555"
+    volumes:
+      - sqlite-data:/app/data
+    environment:
+      - ASPNETCORE_URLS=http://+:5555
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/sqlite.db
+
+volumes:
+  sqlite-data:

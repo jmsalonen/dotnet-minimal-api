@@ -1,0 +1,18 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: my-app
+  namespace: flux-system
+spec:
+  interval: 1m
+  path: . # path in your Git repo to the manifests
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: my-config
+  images:
+    - name: jmsalonen/minimalapi
+      newTag: latest # this is resolved from the ImagePolicy
+  postBuild:
+    substitute:
+      imageTag: latest
