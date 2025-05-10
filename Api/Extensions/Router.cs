@@ -20,6 +20,7 @@ public static class Router
         app.MapGet("/", () => test);
         app.MapGet("/health", () => "Healthy");
         app.MapGet("/healthz", () => "Healthy");
+        app.MapGet("/test", () => "new test endpoint!");
 
         UserEndpoints.MapUserEndpoints(app);
         DeviceEndpoints.MapDeviceEndpoints(app);

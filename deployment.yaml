@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: minimalapi
-          image: jmsalonen/minimalapi:${imageTag}
+          image: jmsalonen/minimalapi:latest
           ports:
             - containerPort: 5555
           env:

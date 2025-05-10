@@ -10,9 +10,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: my-config
-  images:
-    - name: jmsalonen/minimalapi
-      newTag: latest # this is resolved from the ImagePolicy
   postBuild:
     substitute:
-      imageTag: latest
+      imageTag: a1
